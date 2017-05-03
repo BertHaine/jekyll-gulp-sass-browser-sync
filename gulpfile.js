@@ -51,14 +51,28 @@ gulp.task('sass', function () {
         .pipe(gulp.dest('css'));
 });
 
+
+/**
+ * Compile files from js folder into both _site/js folder (for live injecting)
+ */
+gulp.task('scripts', function() {
+  return gulp.src('js/*.js')
+  .pipe(gulp.dest('_site/js'))
+  .pipe(browserSync.reload({stream:true}));
+  });
+
+
 /**
  * Watch scss files for changes & recompile
  * Watch html/md files, run jekyll & reload BrowserSync
  */
 gulp.task('watch', function () {
-    gulp.watch('_scss/*.scss', ['sass']);
-    gulp.watch(['*.html', '_layouts/*.html', '_posts/*'], ['jekyll-rebuild']);
+    gulp.watch(['_scss/**/*.scss','_scss/*.scss'], ['sass']);
+    gulp.watch(['js/*.js'], ['scripts']);
+    gulp.watch(['*.html', '_layouts/*.html', '_posts/*', '_includes/*', '_data/*'], ['jekyll-rebuild']);
 });
+
+
 
 /**
  * Default task, running just `gulp` will compile the sass,
