@@ -1,2 +1,14 @@
-name: Bertram Haine's Portfolio
+# Site settings
+name: 
+title: 
+description: 
+url: 
+baseurl: ""
+email: 
+cover: 
+logo: 
+twitter:
+
+# Excludes
 exclude: ["node_modules", "gulpfile.js", "package.json"]
+
