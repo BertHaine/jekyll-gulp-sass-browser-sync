@@ -10,24 +10,23 @@ A starter project including full setup for Jekyll, GulpJS, SASS, AutoPrefixer &a
 
 #### Setting up the Project
 1. Install Jekyll `$ gem install jekyll`
-1. Install gulp: `$ npm install -g gulp`
-1. Install dependencies: `$ npm install`
-1. Build for prod: `$ gulp
+2. Install gulp: `$ npm install -g gulp`
+3. Install dependencies: `$ npm install`
+4. Serve for dev server: `$ gulp serve`
+5. Build for prod: `$ gulp build`
 
-## Deploy with Gulp
+#### Alfred Workflow
+*For those who use Alfred Workflows, I made a workflow to quickly spin up a new Jekyll project:*
+* [Download Alfred Workflow](https://github.com/BertHaine/tools-workflows/blob/master/alfred/Create%20Jekyll%20Project.alfredworkflow) - trigger the workflow by typing the command Create Jekyll ***YourProjectName***
 
-You can easily deploy your site build to a gh-pages branch. First, follow the instructions at [gulp-gh-pages](https://github.com/rowoot/gulp-gh-pages) to get your branch prepared for the deployment and to install the module. Then, in `gulpfile.js` you'll want to include something like the code below. `gulp.src()` needs to be the path to your final site folder, which by default will be `_site`. If you change the `destination` in your `_config.yml` file, be sure to reflect that in your gulpfile.
+What This Workflow Does:
+1. Creates a new directory **sites** in your Documents directory.
+2. Clones this repo and a gitignore into the sites folder titled ***YourProjectName***.
+3. Removes the boiler README & git file and creates a fresh git repo. 
+4. Opens the project in Iterm & Sublime Text
 
+*If you would like to edit any of the commands, the workflow is a simple bash script.*
 
-
-```javascript
-var deploy = require("gulp-gh-pages");
-
-gulp.task("deploy", ["jekyll-build"], function () {
-    return gulp.src("./_site/**/*")
-        .pipe(deploy());
-});
-```
 
 ## Acknowledgments
 
